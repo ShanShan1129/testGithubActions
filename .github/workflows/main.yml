@@ -31,7 +31,7 @@ jobs:
           
       - name: OCL
         run: |
-          cat <<<EOF > multi-line.txt
+          cat << EOF > multi-line.txt
           log 
           OCL
           EOF
