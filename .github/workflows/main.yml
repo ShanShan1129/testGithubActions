@@ -28,10 +28,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
+      - name: omaeni
+        run: mkdir OCL
       - name: OCL
         run: |
-          cat << EOF > multi-line.txt
+          cat << EOF > OCL/multi-line.txt
           log 
           OCL
           EOF
