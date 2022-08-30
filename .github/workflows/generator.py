@@ -86,20 +86,17 @@ black_list_file=['']
 
 def main():
     #ワーキングディレクトリ(ルート想定)のログフォルダの存在チェック ない場合終了
-    path='.'
-    files = os.listdir(path)
-    files_dir = [f for f in files if os.path.isdir(os.path.join(path, f))]
-    if 'ログ' not in files_dir:
+    if os.path.isdir('./ログ'):
         return
     print(header)
-    generate_li('ログ',3,'logItem1')
+    generate_li('ログ','logItem')
     print(footer)
 
 #ログのリストをログフォルダを再帰的に走査して入れ子になった<li>要素をprintする
-#pathにルートフォルダ(ログフォルダ)
-#depthはhtmlのインデント用
-#classIDはCSSで閉じる仕組みのために着ける
-def generate_li(path, depth,classID):
+#path ルートフォルダ(ログフォルダ)
+#classID CSSで閉じる仕組みのために着ける
+#addLI 最初の階層だけ<li>付けない IQ28のゴリ押し実装 ベストプラクティスくれ
+def generate_li(path,classID,addLI=False):
     files = os.listdir(path)
     #引数のパスから得られるディレクトリとファイルの一覧を生成
     #ブラックリストの物及び頭に.がついている物(.keepなど)を除外
@@ -112,9 +109,20 @@ def generate_li(path, depth,classID):
     print(files_file,file=sys.stderr)
 
     #html生成
-    #print()
+    for i,dir in enumerate(files_dir):
+        localClassID=classID+"-"+str(i)
+        print((addLI if '<li>' else '')+'<label for="'+localClassID+'">'+dir+"</label>")#      <label for="item1">項目１</label>
+        print('<input type="checkbox" id="'+localClassID+'">')#        <input type="checkbox" id="item3">
+        print('<ul>')
+        generate_li(path+dir,'logItem',True)
+        print('/ul')
+
     return
 
+#【最後に】
+#見てないけど多分ゴリ押しのスクリプトを書いたおれはIQ5 ミルクちゃんできた！
+#もっとまともなやり方存在する説濃厚に 私に代わっていい感じに書き直してくれ！
+#わかったかミズゴロウ
 
 if __name__ == "__main__":
     main() 
