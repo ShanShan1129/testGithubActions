@@ -95,7 +95,10 @@ def main():
     generate_li('ログ',3,'logItem1')
     print(footer)
 
-
+#ログのリストをログフォルダを再帰的に走査して入れ子になった<li>要素をprintする
+#pathにルートフォルダ(ログフォルダ)
+#depthはhtmlのインデント用
+#classIDはCSSで閉じる仕組みのために着ける
 def generate_li(path, depth,classID):
     files = os.listdir(path)
     #引数のパスから得られるディレクトリとファイルの一覧を生成
@@ -107,6 +110,9 @@ def generate_li(path, depth,classID):
     print(path,file=sys.stderr)
     print(files_dir,file=sys.stderr)
     print(files_file,file=sys.stderr)
+
+    #html生成
+    #print()
     return
 
 
