@@ -36,6 +36,7 @@ jobs:
 
       - name: cat logViewer
         run: |
-          ls
-          cat logViewer.min.html
+          rm logViewer.html
+          mv logViewer.min.html logViewer.html
+          cat logViewer.html
 
