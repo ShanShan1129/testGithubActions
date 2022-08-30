@@ -111,7 +111,7 @@ def generate_li(path,classID,addLI=False):
     #html生成
     for i,dir in enumerate(files_dir):
         localClassID=classID+"-"+str(i)
-        print((addLI if '<li>' else '')+'<label for="'+localClassID+'">'+dir+"</label>")#      <label for="item1">項目１</label>
+        print(('<li>'if addLI else '')+'<label for="'+localClassID+'">'+dir+"</label>")#      <label for="item1">項目１</label>
         print('<input type="checkbox" id="'+localClassID+'">')#        <input type="checkbox" id="item3">
         print('<ul>')
         generate_li(path+"/"+dir,'logItem',True)
