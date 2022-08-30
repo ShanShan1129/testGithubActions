@@ -35,5 +35,5 @@ jobs:
           output: '.'
 
       - name: cat logViewer
-        run: cat logViewer.html
+        run: cat logViewer.min.html
 
