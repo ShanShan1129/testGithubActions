@@ -99,8 +99,8 @@ def generate_li(path, depth,classID):
     files = os.listdir(path)
     #引数のパスから得られるディレクトリとファイルの一覧を生成
     #ブラックリストの物及び頭に.がついている物(.keepなど)を除外
-    files_dir = [f for f in files if (not f.startwith('.')) and (f not in black_list_dir) and os.path.isdir(os.path.join(path, f))]
-    files_file = [f for f in files if (not f.startwith('.')) and (f not in black_list_file) and os.path.isfile(os.path.join(path, f))]
+    files_dir = [f for f in files if (not f.startswith('.')) and (f not in black_list_dir) and os.path.isdir(os.path.join(path, f))]
+    files_file = [f for f in files if (not f.startswith('.')) and (f not in black_list_file) and os.path.isfile(os.path.join(path, f))]
     print(files_dir)
     print(files_file)
     return
