@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログ一覧</title>
+    <style>
+      /* メニュー全体 */
+      .menu {
+        width: fit-content;
+      }
+
+      /* チェックボックスは非表示にする（内部的な Off/On の機能だけ利用する） */
+      .menu input {
+        display: none;
+      }
+
+      /* 開いた状態のサブメニュー */
+      .menu input:checked + ul {
+        display: block;
+        width: fix-content;
+        padding: 0rem 0rem 0rem 1rem;
+      }
+
+      /* 閉じた状態のサブメニュー */
+      .menu ul {
+        display: none;
+        /* 下記は開閉によらず共通の設定 */
+        background: #eee;
+        list-style: none;
+        margin: 0;
+        padding: 0rem 0rem 0rem 1rem;
+      }
+
+      /* 親項目の装飾 */
+      .menu label {
+        display: block;
+        margin: 0;
+        padding: 0rem;
+        background: #ddd;
+        cursor: pointer;
+      }
+
+      .menu label:hover {
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>シャン卓のログをお前に教える</h3>
+    <div class="menu">
+<label for="item4">項目4</label>
+    <input type="checkbox" id="item4">
+    <ul>
+        <li>項目１－１
+        <li>項目１－２
+        <li>項目１－３お前に教えるooooooooooooooo
+    </ul>
+
+    </div>
+    <p>かっこいいCSS書けるシャンカーにこのページを託す…</p>
+  </body>
+</html>
