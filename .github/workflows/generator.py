@@ -1,4 +1,5 @@
 import os
+import sys
 
 #header
 #ログ一覧を含まないhtml部分 cssやら説明書きやらはこれとfooterに書く
@@ -101,8 +102,11 @@ def generate_li(path, depth,classID):
     #ブラックリストの物及び頭に.がついている物(.keepなど)を除外
     files_dir = [f for f in files if (not f.startswith('.')) and (f not in black_list_dir) and os.path.isdir(os.path.join(path, f))]
     files_file = [f for f in files if (not f.startswith('.')) and (f not in black_list_file) and os.path.isfile(os.path.join(path, f))]
-    print(files_dir)
-    print(files_file)
+
+    #デバッグ用
+    print(path,file=sys.stderr)
+    print(files_dir,file=sys.stderr)
+    print(files_file,file=sys.stderr)
     return
 
 
