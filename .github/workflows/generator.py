@@ -114,7 +114,7 @@ def generate_li(path,classID,addLI=False):
         print(('<li>'if addLI else '')+'<label for="'+localClassID+'">'+dir+"</label>")#      <label for="item1">項目１</label>
         print('<input type="checkbox" id="'+localClassID+'">')#        <input type="checkbox" id="item3">
         print('<ul>')
-        generate_li(path+"/"+dir,'logItem',True)
+        generate_li(path+"/"+dir,'logItem'+"-"+str(i),True)
         print('</ul>')
 
     return
