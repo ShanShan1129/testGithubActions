@@ -86,10 +86,10 @@ black_list_file=['']
 
 def main():
     #ワーキングディレクトリ(ルート想定)のログフォルダの存在チェック ない場合終了
-    if os.path.isdir('./ログ'):
+    if not os.path.isdir('./ログ'):
         return
     print(header)
-    #generate_li('ログ','logItem')
+    generate_li('ログ','logItem')
     print(footer)
 
 #ログのリストをログフォルダを再帰的に走査して入れ子になった<li>要素をprintする
