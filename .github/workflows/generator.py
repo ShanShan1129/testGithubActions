@@ -81,6 +81,7 @@ url="https://shanshan1129.github.io/testGithubActions/ログ"
 
 #未整理なのでやらない
 black_list_dir=['シャンTRPGログ2021_10_02まで']
+black_list_file=['']
 
 def main():
     #ワーキングディレクトリ(ルート想定)のログフォルダの存在チェック ない場合終了
@@ -90,10 +91,18 @@ def main():
     if 'ログ' not in files_dir:
         return
     print(header)
-    print(example)
+    generate_li('ログ',3,'logItem1')
     print(footer)
 
-def generate_li():
+
+def generate_li(path, depth,classID):
+    files = os.listdir(path)
+    #引数のパスから得られるディレクトリとファイルの一覧を生成
+    #ブラックリストの物及び頭に.がついている物(.keepなど)を除外
+    files_dir = [f for f in files if (not f.startwith('.')) and (f not in black_list_dir) and os.path.isdir(os.path.join(path, f))]
+    files_file = [f for f in files if (not f.startwith('.')) and (f not in black_list_file) and os.path.isfile(os.path.join(path, f))]
+    print(files_dir)
+    print(files_file)
     return
 
 
