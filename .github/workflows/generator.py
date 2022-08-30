@@ -1,5 +1,4 @@
-from pathlib import Path
-
+import os
 
 #header
 #ログ一覧を含まないhtml部分 cssやら説明書きやらはこれとfooterに書く
@@ -97,7 +96,7 @@ def main():
     print(footer)
 
 def generate_li():
-
+    return
 
 if __name__ == "__main__":
     main() 
