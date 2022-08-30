@@ -76,9 +76,9 @@ footer="""    </div>
 #url
 #リポジトリごとに変える
 #オルガのとこなら
-#https://orga-itsuka-trpg.github.io/TRPG-OCL-Rule/ログ
+#https://orga-itsuka-trpg.github.io/TRPG-OCL-Rule/
 #になるはず
-url="https://shanshan1129.github.io/testGithubActions/ログ"
+url="https://shanshan1129.github.io/testGithubActions/"
 
 #未整理なのでやらない
 black_list_dir=['シャンTRPGログ2021_10_02まで']
@@ -116,6 +116,9 @@ def generate_li(path,classID,addLI=False):
         print('<ul>')
         generate_li(path+"/"+dir,'logItem'+"-"+str(i),True)
         print('</ul>')
+
+    for file in files_file:
+        print('<li><a href="'+url+path+'/'+file+'" target="_blank" rel="noopener noreferrer">'+file+'</a>')
 
     return
 
