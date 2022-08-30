@@ -89,7 +89,7 @@ def main():
     if os.path.isdir('./ログ'):
         return
     print(header)
-    generate_li('ログ','logItem')
+    #generate_li('ログ','logItem')
     print(footer)
 
 #ログのリストをログフォルダを再帰的に走査して入れ子になった<li>要素をprintする
@@ -111,11 +111,11 @@ def generate_li(path,classID,addLI=False):
     #html生成
     for i,dir in enumerate(files_dir):
         localClassID=classID+"-"+str(i)
-        print((addLI if '<li>' else '')+'<label for="'+localClassID+'">'+dir+"</label>")#      <label for="item1">項目１</label>
-        print('<input type="checkbox" id="'+localClassID+'">')#        <input type="checkbox" id="item3">
-        print('<ul>')
+        #print((addLI if '<li>' else '')+'<label for="'+localClassID+'">'+dir+"</label>")#      <label for="item1">項目１</label>
+        #print('<input type="checkbox" id="'+localClassID+'">')#        <input type="checkbox" id="item3">
+        #print('<ul>')
         generate_li(path+dir,'logItem',True)
-        print('/ul')
+        #print('/ul')
 
     return
 
