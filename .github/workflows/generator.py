@@ -56,9 +56,8 @@ header="""<!DOCTYPE html>
     <h3>シャン卓のログをお前に教える</h3>
     <div class="menu">"""
 
-"""
-この間にul要素が入れ子になる感じで
-<label for="item4">項目4</label>
+#この間にul要素が入れ子になる感じで
+example="""<label for="item4">項目4</label>
     <input type="checkbox" id="item4">
     <ul>
         <li>項目１－１
@@ -66,7 +65,6 @@ header="""<!DOCTYPE html>
         <li>項目１－３お前に教えるooooooooooooooo
     </ul>
 """
-
 
 #footer 以下略
 footer="""    </div>
@@ -92,7 +90,7 @@ def main():
     if 'ログ' not in files_dir:
         return
     print(header)
-
+    print(example)
     print(footer)
 
 def generate_li():
