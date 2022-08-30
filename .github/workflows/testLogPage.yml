@@ -24,5 +24,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a python script
         run: |
-          python3 .github/workflows/generator.py
+          python3 .github/workflows/generator.py > logViewer.html
+
+      - name: cat logViewer
+        run: cat logViewer.html
 
