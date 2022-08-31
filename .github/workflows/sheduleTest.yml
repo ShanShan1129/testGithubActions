@@ -7,6 +7,9 @@ on:
   schedule:
     # 定期実行
     - cron: '0 * * * *'
+    - cron: '15 * * * *'
+    - cron: '30 * * * *'
+    - cron: '45 * * * *'
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -33,3 +36,20 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Diff
+        id: diff
+        run: |
+          git add -N .
+          git diff --name-only --exit-code
+        continue-on-error: true
+
+      # 成果物をプッシュ
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
+        if: steps.diff.outcome == 'failure'
