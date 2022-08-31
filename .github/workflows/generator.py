@@ -92,7 +92,7 @@ def generate_li(path,addLI=False):
     for dir in files_dir:
         print(('<li>'if addLI else '')+'<details><summary>'+dir+"</summary>")
         print('<ul>')
-        generate_li(path+"/"+dir,'logItem'+"-"+str(i),True)
+        generate_li(path+"/"+dir,True)
         print('</ul>')
         print('</details>')
 
