@@ -97,7 +97,7 @@ def generate_li(path,addLI=False):
         print('</details>')
 
     for file in files_file:
-        print(('<li>'if addLI else '')+'<a href="'path+'/'+file+'" target="_blank" rel="noopener noreferrer">'+file+'</a>')
+        print(('<li>'if addLI else '')+'<a href="'+path+'/'+file+'" target="_blank" rel="noopener noreferrer">'+file+'</a>')
 
     return
 
