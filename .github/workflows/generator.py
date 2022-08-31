@@ -70,7 +70,7 @@ def main():
     if not os.path.isdir('./ログ'):
         return
     print(header)
-    generate_li('ログ','logItem')
+    generate_li('ログ')
     print(footer)
 
 #ログのリストをログフォルダを再帰的に走査して入れ子になった<li>要素をprintする
