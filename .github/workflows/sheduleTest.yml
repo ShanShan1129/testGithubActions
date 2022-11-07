@@ -4,12 +4,12 @@ name: sheduleTest
 
 # Controls when the workflow will run
 on:
-  schedule:
+  #schedule:
     # 定期実行
-    - cron: '0 * * * *'
-    - cron: '15 * * * *'
-    - cron: '30 * * * *'
-    - cron: '45 * * * *'
+    #- cron: '0 * * * *'
+    #- cron: '15 * * * *'
+    #- cron: '30 * * * *'
+    #- cron: '45 * * * *'
 
 
   # Allows you to run this workflow manually from the Actions tab
