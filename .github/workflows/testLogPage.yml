@@ -38,6 +38,8 @@ jobs:
           ls
           cat logViewer.html
           ls ./logviewer
+          ls ./ログ/SW/20211230年末SW2.5/
+          cat ./ログ/SW/20211230年末SW2.5/年末SW2.5整形.html
           cat ./logviewer/logViewer.html
           rm ./logviewer/logViewer.html
           ls ./logviewer
