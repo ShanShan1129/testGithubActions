@@ -23,18 +23,24 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a python script
         run: |
-          python3 .github/workflows/generator.py > logViewer.html
+          mkdir ./logviewer
+          python3 .github/workflows/generator.py > ./logviewer/logViewer.html
 
       # Job for Minify-JS
-      - name: Minify-JS Action
-        uses: jossydevers/minify-js@v1.0.1
+      - name: HTML/CSS/JS Minifier
+        uses: docker://devatherock/minify-js:1.0.3
         with:
-          directory: 'logViewer.html' # (OPTIONAL)
-          output: './'
+          directory: '.'      # Optional
+          add_suffix: false     # Optional
 
       - name: cat logViewer
         run: |
-          rm logViewer.html
-          mv logViewer.min.html logViewer.html
+          ls
           cat logViewer.html
-
+          ls ./logviewer
+          ls "./ログ/SW/20211230年末SW2.5/"
+          cat "./ログ/SW/20211230年末SW2.5/年末SW2.5整形.html"
+          cat ./logviewer/logViewer.html
+          rm ./logviewer/logViewer.html
+          ls ./logviewer
+          cat ./logviewer/logViewer.html
