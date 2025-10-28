@@ -11,35 +11,8 @@ header="""<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログ一覧</title>
-    <style>
-      /* メニュー全体 */
-      .menu {
-        width: fit-content;
-      }
-
-      /* 開いた状態のサブメニュー */
-      .menu ul {
-        display: block;
-        width: fix-content;
-        padding: 0rem 0rem 0rem 1rem;
-        background: #eee;
-        list-style: none;
-        margin: 0;
-      }
-
-      /* 親項目の装飾 */
-      .menu summary {
-        display: block;
-        margin: 0;
-        padding: 0rem;
-        background: #ddd;
-        cursor: pointer;
-      }
-
-      .menu summary:hover {
-        background: #ccc;
-      }
-    </style>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h3>シャン卓のログをお前に教える</h3>
@@ -61,9 +34,9 @@ footer="""    </div>
   </body>
 </html>"""
 
-#未整理なのでやらない
-black_list_dir=['シャンTRPGログ2021_10_02まで']
-black_list_file=['']
+#ブラックリスト
+black_list_dir=[]#'シャンTRPGログ2021_10_02まで'
+black_list_file=[]
 
 def main():
     #ワーキングディレクトリ(ルート想定)のログフォルダの存在チェック ない場合終了
@@ -81,8 +54,10 @@ def generate_li(path,addLI=False):
     #引数のパスから得られるディレクトリとファイルの一覧を生成
     #ブラックリストの物及び頭に.がついている物(.keepなど)を除外
     files_dir = [f for f in files if (not f.startswith('.')) and (f not in black_list_dir) and os.path.isdir(os.path.join(path, f))]
-    files_file = [f for f in files if (not f.startswith('.')) and (f not in black_list_file) and os.path.isfile(os.path.join(path, f))]
+    files_file = [f for f in files if (not f.startswith('.')) and (not f.endswith('.keep')) and (f not in black_list_file) and os.path.isfile(os.path.join(path, f))]
 
+    files_dir.sort()
+    files_file.sort()
     #デバッグ用
     print(path,file=sys.stderr)
     print(files_dir,file=sys.stderr)
