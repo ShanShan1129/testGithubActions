@@ -5,8 +5,10 @@ header = """<!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログ一覧</title>
-  </head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
   <body>
     <h3>シャン卓のログをお前に教える</h3>
     <div class="menu">"""
@@ -66,7 +68,7 @@ def build_tree(path):
     files_dir.sort()
     files_file.sort()
 
-    # 👇 年ごとにまとめる用
+    # 年ごとにまとめる用
     year_groups = {}
 
     # ===== ディレクトリ処理 =====
@@ -140,7 +142,12 @@ def main():
     tree = build_tree('ログ')
 
     print(header)
-    print(render_html(tree, add_li=False))
+
+    print("<ul>")
+    for child in tree["children"]:
+        print(render_html(child, add_li=True))
+    print("</ul>")
+
     print(footer)
 
 
